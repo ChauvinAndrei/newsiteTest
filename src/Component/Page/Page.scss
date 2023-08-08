@@ -1,0 +1,27 @@
+@use '../../Styles/variables.scss' as v;
+
+.main--wrapper{
+    height: 100vh;
+    display: flex;
+    padding-inline: v.$gutter-medium;
+    box-sizing: border-box;
+    background-color: rgba(53, 73, 119, 0.057);
+
+    .menu--title{
+        // font-size: 1.5em;
+        opacity: 0;
+        text-align: start;
+        width: 100%;
+        margin: 0;
+        padding: v.$gutter-medium;
+        height: fit-content;
+        border-bottom: 1px solid rgb(213, 224, 241);
+        transform: rotateX(-45deg);
+        transition: opacity 500ms ease, transform 300ms ease-in;
+        
+        &.active{
+            opacity: 1;
+            transform: rotateX(0);
+        }
+    }
+}

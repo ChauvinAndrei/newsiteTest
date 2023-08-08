@@ -1,0 +1,24 @@
+@use '/src/Styles/variables.scss' as v;
+
+.App {
+  text-align: center;
+  padding-left: v.$MenuWidth;
+  transition: padding-left 300ms ease;
+  will-change: padding-left;
+
+  &.off {
+    padding-left: v.$MenuWidthClose;
+
+    .menu {
+      width: v.$MenuWidthClose;
+
+      &::before{
+        transform: translateX(v.$MenuWidthClose) translateZ(0);
+      }
+
+      span {
+        opacity: 0;
+      }
+    }
+  }
+}

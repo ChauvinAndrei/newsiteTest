@@ -1,0 +1,27 @@
+@use '../../Styles/variables.scss' as v;
+.header{
+
+    &--wrapper{
+    // width: calc(100% - v.$MenuWidth);  
+       padding: .5em v.$gutter-medium;
+       height: v.$headerHeight;
+       background: white;
+       position: relative;
+       box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
+                   0 0 20px 10px rgba(4, 139, 250, 0.041);    
+        clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+        z-index: 500;
+    }
+
+    &--logo-wrapper{
+        display: flex;
+       
+        img{
+            width: 80px;
+        }
+
+        h1{
+            font-size: 1.2em;
+        }
+    }
+}
