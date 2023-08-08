@@ -1,9 +1,15 @@
 
+$gutter-medium: 1rem;
 
+// == HEADER VAR
+$headerHeight: 60px;
+
+// == MENU VAR
 $MenuWidth: 150px;
 $MenuWidthClose: 75px;
 
-$headerHeight: 60px;
+$MenuWidthMobile: calc($MenuWidth - $gutter-medium);
+$MenuWidthMobileClose: calc($MenuWidthClose - $gutter-medium);
+
 $BtnWidth: 40px;
 
-$gutter-medium: 1rem;

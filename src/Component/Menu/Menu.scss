@@ -8,7 +8,8 @@
     width: v.$MenuWidth;
     font-size: .9em;
     z-index: 9999;            
-        
+
+
     &::before{
         content: "";
         position: fixed;
@@ -22,7 +23,11 @@
         -10px 0 20px 10px rgba(4, 139, 250, 0.041);  
         transform: translateX(v.$MenuWidth) translateZ(0);
         clip-path: polygon(0% 0%, 120% 0%, 120% 120%, 0% 120%);
-        transition: transform 300ms ease;         
+        transition: transform 300ms ease; 
+        
+        @media (max-width: 480px){
+            top: v.$headerHeight;
+        }
     }
 
     &--list{

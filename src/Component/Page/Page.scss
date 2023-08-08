@@ -5,11 +5,13 @@
     box-sizing: border-box;
     background-color: rgba(53, 73, 119, 0.057);
     height: 100vh;
-
+    min-width: calc(400px + 75px);
 
     &-div{
+        display: flex;
         width: 100%;
         padding-inline: v.$gutter-medium;
+        overflow: scroll;
 
         .menu--title{
             position: fixed;
@@ -31,18 +33,35 @@
             transform: rotateX(-45deg);
             transition: opacity 500ms ease, transform 300ms ease-in;
             z-index: 9999;
-
+            
             &.active{
                 opacity: 1;
                 transform: rotateX(0);
             }
+
+            @media (max-width: 480px){
+                top: v.$headerHeight;
+            }
         }
 
         .duContenu{
-            position: relative;
-            top: calc(v.$headerHeight + v.$gutter-medium);
-            padding: v.$gutter-medium;
-            border: 1px solid rgb(213, 224, 241);
+            display: flex;
+            // position: relative;
+            // top: calc(v.$headerHeight + v.$gutter-medium);
+            padding-inline: v.$gutter-medium;
+            border-left: 1px solid rgb(213, 224, 241);
+            border-right: 1px solid rgb(213, 224, 241);
+
+            text-align: start;
+            font-size: 1rem;
+            font-size: clamp(.9rem, 3vw, 1rem);
+
+            p{
+                margin: 0;
+            }
+            @media (max-width: 480px){
+                top: calc(v.$headerHeight + v.$gutter-medium );
+            }
         }
     }
 }

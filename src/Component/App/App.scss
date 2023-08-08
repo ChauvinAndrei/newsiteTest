@@ -5,6 +5,7 @@
 
   .main--wrapper{
     padding-left: v.$MenuWidth;
+    padding-top: calc(2 * (v.$headerHeight + v.$gutter-medium));
     transition: padding-left 300ms ease;
     will-change: padding-left;
     overflow: hidden;
@@ -15,16 +16,33 @@
       .main--wrapper{
         padding-left: v.$MenuWidthClose;
 
+        @media (max-width: 480px){
+          padding-left: v.$MenuWidthMobileClose;
+        }
+
         .menu--title{
           width: calc(100% - v.$MenuWidth + 0.5em);
+          
+          @media (max-width: 480px){
+            top: v.$headerHeight;
+            width: calc(100% - v.$MenuWidthMobile + 0.5em);
+          }
         }
       }
 
       .menu {
         width: v.$MenuWidthClose;
 
+        @media (max-width: 480px){
+          width: v.$MenuWidthMobileClose;
+        }
+
           &::before{
             transform: translateX(v.$MenuWidthClose) translateZ(0);
+
+            @media (max-width: 480px){
+              transform: translateX(v.$MenuWidthMobileClose) translateZ(0);
+            }
           }
 
           span {
