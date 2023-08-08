@@ -1,27 +1,62 @@
 @use '../../Styles/variables.scss' as v;
 .header{
 
-    &--wrapper{
-    // width: calc(100% - v.$MenuWidth);  
+    &--wrapper{ 
+       position: -webkit-sticky;
+       position: sticky;
+       top: 0;
+       left: 0;
        padding: .5em v.$gutter-medium;
        height: v.$headerHeight;
        background: white;
-       position: relative;
-       box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
-                   0 0 20px 10px rgba(4, 139, 250, 0.041);    
-        clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
-        z-index: 500;
-    }
+       clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+       z-index: 500;
 
-    &--logo-wrapper{
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            // left: v.$MenuWidth;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+            box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
+            0 0 20px 10px rgba(4, 139, 250, 0.041); 
+            z-index: -2;
+        }
+    }
+    &--wrapper-div{
         display: flex;
+        height: v.$headerHeight;
+
+        .header--logo{
+            display: flex;
+            width: 100%;
        
-        img{
-            width: 80px;
+       
+            img{
+                width: 60px;
+            }
+
+            h1{
+                // margin-inline: auto;
+                font-size: 1.2em;
+                white-space: nowrap;
+            }
+        
         }
 
-        h1{
-            font-size: 1.2em;
+        .header--links{
+            display: flex;
+            align-items: center;
+            gap: .5em;
+
+            span{
+                color: rgb(98, 205, 255);
+                text-decoration: underline;
+            }
         }
     }
+
 }

@@ -7,31 +7,22 @@
     left: 0;
     width: v.$MenuWidth;
     font-size: .9em;
-    // display: flex;
-    // flex-flow: column;
-    // justify-content: center;
-    // overflow-x: hidden;
-    // overflow-y: scroll;
-    // background: radial-gradient(ellipse 100% 90% at center, rgb(53, 73, 119),rgb(1, 6, 19));
-    // box-shadow: 5px 0 10px 1px rgba(0, 10, 68, 0.255),
-    //             7px 0 10px 7px rgba(5, 17, 83, 0.115);
-    // transform: translateZ(0);
-    // transition: width 300ms ease;
-    z-index: 400;            
+    z-index: 9999;            
         
     &::before{
         content: "";
         position: fixed;
-        top: 0;
+        top: calc(v.$headerHeight + v.$gutter-medium);
         left: - v.$MenuWidth;
         height: 100%;
         width: v.$MenuWidth;
         // background: radial-gradient(ellipse 100% 90% at center, rgb(53, 73, 119),rgb(1, 6, 19));
+        background-color: white;
         box-shadow: -5px 0 10px 3px rgba(3, 25, 37, 0.155),
         -10px 0 20px 10px rgba(4, 139, 250, 0.041);  
         transform: translateX(v.$MenuWidth) translateZ(0);
         clip-path: polygon(0% 0%, 120% 0%, 120% 120%, 0% 120%);
-        transition: transform 300ms ease;           
+        transition: transform 300ms ease;         
     }
 
     &--list{
@@ -56,16 +47,18 @@
         text-decoration: none;
         transition: color 200ms ease-out, letter-spacing 200ms ease-out;
         letter-spacing: .0255rem;
+        outline: 0;
+        background-color: transparent;
         width: 100%;
 
         &::after{
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
+            top: - v.$gutter-medium;
             right: - v.$gutter-medium;
             bottom: 0;
             transform: var(--newPosition, translateY(0));
+            clip-path: polygon(0% 20%, 100% 20%, 100% 80%, 0% 80%);
             transition: transform 200ms ease;
             pointer-events: none;
             cursor: none;
@@ -85,7 +78,10 @@
             letter-spacing: .115rem;
 
             &::after{
-                border-right: 3px solid white;
+                border-right: 3px solid rgb(98, 205, 255);
+                width: fit-content;
+                margin: 0;
+                padding: 0;
             }
         }
 
@@ -116,6 +112,3 @@
     }
 
 }
-            // position:absolute;
-            // top: calc((v.$headerHeight + v.$gutter-medium) + (v.$gutter-medium / 2));
-            // right: calc(-1 * (v.$BtnWidth - v.$gutter-medium / 2));
