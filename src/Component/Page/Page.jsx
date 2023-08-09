@@ -5,7 +5,9 @@ const Page = ( { children } ) => {
     return (
         <main className="main--wrapper">
             <div className='main--wrapper-div'>
-            {children}
+                <div className="main--wrapper-inner">
+                    {children}
+                </div>
             </div>
         </main>
     )
