@@ -57,32 +57,34 @@ const Menu = ( {menuActive} ) => {
     
     return (
         <nav className="menu">
-            <ul className="menu--list">
-                {menuItems.map((menuItem, index) => (
-                    <li
-                        className={"menu--list-children" + (menuItem.isActive ? " active" : "")}
-                        style={{
-                            "--newPosition":
-                                menuItem.isActive
-                                    ? `translateY(0)`
-                                    : `translateY(${menuItems[activeIndex]?.position - menuItem.position }px)`,
-                        }}
-                        key={menuItem.label}
-                    >
-                        <NavLink
-                            to={menuItem.to}
-                            className={({isActive}) => "menu--link" + (isActive ? " active" : "")} 
-                            onClick={() => handleMenuItemClick(index)}
-                            ref={(el) => (activeRefs.current[index] = el)}
+            <div className='test'>
+                <ul className="menu--list">
+                    {menuItems.map((menuItem, index) => (
+                        <li
+                            className={"menu--list-children" + (menuItem.isActive ? " active" : "")}
+                            style={{
+                                "--newPosition":
+                                    menuItem.isActive
+                                        ? `translateY(0)`
+                                        : `translateY(${menuItems[activeIndex]?.position - menuItem.position }px)`,
+                            }}
+                            key={menuItem.label}
                         >
-                            {menuItem.icon} 
-                                <span>
-                                    {menuItem.label}
-                                </span>
-                        </NavLink>
-                    </li>
-                ))}
-            </ul>
+                            <NavLink
+                                to={menuItem.to}
+                                className={({isActive}) => "menu--link" + (isActive ? " active" : "")} 
+                                onClick={() => handleMenuItemClick(index)}
+                                ref={(el) => (activeRefs.current[index] = el)}
+                            >
+                                {menuItem.icon} 
+                                    <span>
+                                        {menuItem.label}
+                                    </span>
+                            </NavLink>
+                        </li>
+                    ))}
+                </ul>
+      
 
                 {menuActive ? 
                 <button 
@@ -104,7 +106,7 @@ const Menu = ( {menuActive} ) => {
                 </button>
                 }
 
-                
+            </div>
    
         </nav>
     );

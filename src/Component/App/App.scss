@@ -7,9 +7,13 @@
   .main--wrapper{
     padding-left: v.$MenuWidth;
     // padding-top: calc(2 * (v.$headerHeight + v.$gutter-medium));
-    padding-top: v.$headerHeight;
+    padding-top: calc(v.$headerHeight + v.$gutter-medium);
     transition: padding-left 300ms ease;
     will-change: padding-left;
+
+    @media (max-width: 480px){
+      padding-top: v.$headerHeight;
+    }
   }
 
   &.off {

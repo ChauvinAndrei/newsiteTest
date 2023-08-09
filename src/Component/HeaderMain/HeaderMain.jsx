@@ -11,7 +11,7 @@ const HeaderMain = () => {
 
                 <div className='header--logo'>
                 <img src={Logo} alt="" />
-                <h1>Mon site (Boostrap caca)</h1>
+                <h1>Mon Site Web</h1>
                 </div>
 
                 <div className='header--links'>

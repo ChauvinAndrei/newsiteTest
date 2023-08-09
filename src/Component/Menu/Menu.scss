@@ -6,9 +6,8 @@
     top: calc(v.$headerHeight + v.$gutter-medium);
     left: 0;
     width: v.$MenuWidth;
-    font-size: .9em; 
+    font-size: .9em;
     z-index: 9999;         
-
 
     &::before{
         content: "";
@@ -103,7 +102,6 @@
     }
 
     &--btn{
-
         border: none;
         background: none;
         cursor: pointer;
@@ -117,3 +115,7 @@
     }
 
 }
+// .test{
+//     overflow: auto;
+//     height: 100vh;
+// }
