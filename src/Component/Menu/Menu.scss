@@ -17,6 +17,7 @@
         position: absolute;
         left: .5em;
         padding: .4em 1em;
+        width: fit-content;
         border-radius: 5px;
         font-size: .8rem;
         text-align: left;
@@ -83,12 +84,11 @@
     }   
 
     &--link{
-        box-sizing: border-box;
-        text-align: center;
         position: relative;
         display: flex;
         flex-flow: column;
         align-items: center;
+        text-align: center;
         letter-spacing: .0255rem;
         color: rgb(98, 205, 255);
         background-color: transparent;
@@ -98,18 +98,27 @@
         padding-inline: v.$gutter-medium;
         max-width: 60px;
         width: 100%;
+        box-sizing: border-box;
 
         &::after{
             content: "";
             position: absolute;
             top: - v.$gutter-medium;
-            right: - v.$gutter-medium;
-            bottom: 0;
             transform: var(--newPosition, translateY(0));
             clip-path: polygon(0% 20%, 100% 20%, 100% 80%, 0% 80%);
             transition: transform 200ms ease;
             pointer-events: none;
             cursor: none;
+        }
+
+        &.active {
+            &::after{
+                border-top: 4px solid rgb(98, 205, 255);
+                top: calc(-1 * (v.$gutter-medium + 1px));
+                bottom: unset;
+                right: 0;
+                left: 0;
+            }
         }
 
         &:hover{
@@ -179,11 +188,13 @@
             display: block;
             padding-inline: 0;
             padding-block: .5em;
-
+     
             &.active {
                 &::after{
-                    border-right: 3px solid rgb(98, 205, 255);
+                    border-right: 4px solid rgb(98, 205, 255);
                     top: 0;
+                    bottom: 0;
+                    right: - v.$gutter-medium;
                 }
             }
         }   

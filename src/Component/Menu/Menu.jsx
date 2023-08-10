@@ -22,6 +22,7 @@ const Menu = ( {menuActive} ) => {
 
     const [activeIndex, setActiveIndex] = useState(-1);
     const menuItems = useSelector((state) => state.page.NavLinks);
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
     
     const activeRefs = useRef([]);
 
@@ -30,6 +31,21 @@ const Menu = ( {menuActive} ) => {
         setActiveIndex(index);
     };
     
+// ======
+
+    useEffect(() => {
+
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 700);
+        }
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+        
+    }, [])
+
+// ======
 
     useEffect(() => {
 
@@ -37,7 +53,9 @@ const Menu = ( {menuActive} ) => {
         return NavLinks.map((link, index) => ({
             ...link,
             isActive: activeIndex === index,
-            position: activeRefs.current[index]?.offsetTop,
+            position: isMobile
+            ? activeRefs.current[index]?.offsetLeft
+            : activeRefs.current[index]?.offsetTop,
         }))
        }
 
@@ -45,7 +63,8 @@ const Menu = ( {menuActive} ) => {
 
     }, [activeIndex]);
 
-    
+// ======
+
     useLayoutEffect(() => {
         const initialState = activeRefs.current.findIndex((item) => {
           return item.classList.contains('active');
@@ -62,7 +81,7 @@ const Menu = ( {menuActive} ) => {
                 <span
                     className={"menu--label" + (menuItem.isActive ? " active" : "")}
                     style={{
-                        top: `${menuItem.position}px`,
+                        [!isMobile ? 'top' : 'left']: `${menuItem.position}px`,
                     }}
                     key={menuItem.label}
                 >
@@ -81,7 +100,7 @@ const Menu = ( {menuActive} ) => {
                                 "--newPosition":
                                     menuItem.isActive
                                         ? `translateY(0)`
-                                        : `translateY(${menuItems[activeIndex]?.position - menuItem.position }px)`,
+                                        : (!isMobile ? `translateY(${menuItems[activeIndex]?.position - menuItem.position }px)` : `translateX(${menuItems[activeIndex]?.position - menuItem.position }px)`),
                             }}
                             key={menuItem.label}
                         >
