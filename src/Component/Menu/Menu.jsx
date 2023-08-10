@@ -22,6 +22,7 @@ const Menu = ( {menuActive} ) => {
 
     const [activeIndex, setActiveIndex] = useState(-1);
     const menuItems = useSelector((state) => state.page.NavLinks);
+    const [returnToInactive, setReturnToInactive] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth < 700);
     
     const activeRefs = useRef([]);
@@ -29,6 +30,7 @@ const Menu = ( {menuActive} ) => {
 
     const handleMenuItemClick = (index) => {
         setActiveIndex(index);
+        setReturnToInactive(true);
     };
     
 // ======
@@ -49,6 +51,8 @@ const Menu = ( {menuActive} ) => {
 
     useEffect(() => {
 
+        let timeoutHidden;
+
        const setMenuItem = () => {
         return NavLinks.map((link, index) => ({
             ...link,
@@ -59,8 +63,14 @@ const Menu = ( {menuActive} ) => {
         }))
        }
 
+       if (returnToInactive) {
+        timeoutHidden = setTimeout(() => {
+            setReturnToInactive(false);
+        }, 800); 
+    }
        dispatch(updateCurrentPage(setMenuItem()));
-
+    
+       return () => clearTimeout(timeoutHidden);
     }, [activeIndex]);
 
 // ======
@@ -82,6 +92,7 @@ const Menu = ( {menuActive} ) => {
                     className={"menu--label" + (menuItem.isActive ? " active" : "")}
                     style={{
                         [!isMobile ? 'top' : 'left']: `${menuItem.position}px`,
+                        opacity: !returnToInactive && 0,
                     }}
                     key={menuItem.label}
                 >
