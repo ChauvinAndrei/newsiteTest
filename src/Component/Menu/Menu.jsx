@@ -55,9 +55,24 @@ const Menu = ( {menuActive} ) => {
       }, [menuItems]);
 
     
-    return (
+     return (
+        <>
+        <div className="label-spans">
+            {menuItems.map((menuItem, index) => (
+                <span
+                    className={"menu--label" + (menuItem.isActive ? " active" : "")}
+                    style={{
+                        top: `${menuItem.position}px`,
+                    }}
+                    key={menuItem.label}
+                >
+                    {menuItem.label}
+                </span>
+            ))} 
+        </div>
+
         <nav className="menu">
-            <div className='test'>
+            <div className='menu--wrapper'>      
                 <ul className="menu--list">
                     {menuItems.map((menuItem, index) => (
                         <li
@@ -76,40 +91,14 @@ const Menu = ( {menuActive} ) => {
                                 onClick={() => handleMenuItemClick(index)}
                                 ref={(el) => (activeRefs.current[index] = el)}
                             >
-                                {menuItem.icon} 
-                                    <span>
-                                        {menuItem.label}
-                                    </span>
+                                {menuItem.icon}
                             </NavLink>
                         </li>
                     ))}
                 </ul>
-      
-
-                {menuActive ? 
-                <button 
-                type="button" 
-                className='menu--btn on'
-                onClick={ () => {
-                    dispatch(displayMenu());
-                }}>
-                    <ArrowRightCircle />
-                </button>
-                :
-                <button 
-                type='button' 
-                className='menu--btn off' 
-                onClick={ () => {
-                    dispatch(displayMenu());
-                }}>
-                    <ArrowLeftCircle />
-                </button>
-                }
-
             </div>
-   
         </nav>
-    );
-};
-
+        </>
+    )
+};    
 export { NavLinks, Menu };

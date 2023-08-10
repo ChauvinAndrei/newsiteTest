@@ -41,20 +41,24 @@ const App = () => {
   return (
     <div className={`App${menuActive ? " off" : ""}`}>
 
-      <Menu menuActive={menuActive}/>
       <HeaderMain />
       
-        <Routes>
+        <div className='app--container'>
+          <Menu menuActive={menuActive}/>
+          
+            <Routes>
 
-          {NavLinks.map((pageLink) => (
-              <Route
-              key={pageLink.label}
-              path={pageLink.to} 
-              element={handlePage(pageLink.label)}
-              />
-          ))}
+              {NavLinks.map((pageLink) => (
+                  <Route
+                  key={pageLink.label}
+                  path={pageLink.to} 
+                  element={handlePage(pageLink.label)}
+                  />
+              ))}
 
-        </Routes>
+            </Routes>
+          </div>
+          
     </div>
   );
 };

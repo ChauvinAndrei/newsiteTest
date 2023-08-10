@@ -1,41 +1,80 @@
 @use '../../Styles/variables.scss' as v;
 
+.label-spans{
+    position: fixed;
+    bottom: calc(v.$headerHeight + 2em);
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: v.$MenuWidth;
+    padding-block: v.$gutter-medium;
+    min-width: 0;
+    z-index: 9000;
+
+    .menu--label{
+        opacity: 0;
+        position: absolute;
+        left: .5em;
+        padding: .4em 1em;
+        border-radius: 5px;
+        font-size: .8rem;
+        text-align: left;
+        font-weight: bold;
+        background: radial-gradient(ellipse at top, transparent,  rgba(0, 171, 250, 0.400), rgba(0, 171, 250, 0.400));
+        text-shadow: 0 2px 2px rgba(4, 23, 58, 0.267);
+        backdrop-filter: blur(3px);
+        color: white;
+        transform: translateY(-1em);
+        box-shadow: 0px 2px 2px 3px rgba(3, 25, 37, 0.062);
+        transition: opacity 500ms ease, transform 300ms ease;
+
+        &.active{
+            opacity: 1;
+            transition-delay: 300ms;
+            transform: translateY(0);
+        }
+    }
+}
+
 .menu {
     position: fixed;
-    height: 100vh;
-    top: calc(v.$headerHeight + v.$gutter-medium);
+    bottom: 0;
     left: 0;
-    width: v.$MenuWidth;
-    font-size: .9em;
-    z-index: 9999;         
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: v.$MenuWidth;
+    padding-block: v.$gutter-medium;
+    font-size: .9em;  
+    background-color: white;  
+    box-shadow: -5px 0 10px 3px rgba(3, 25, 37, 0.155),
+    -10px 0 20px 10px rgba(4, 139, 250, 0.041);
+    clip-path: polygon(0% -20%, 100% -20%, 100% 100%, 0% 100%);
+    z-index: 9997;
+    
 
-    &::before{
-        content: "";
-        position: fixed;
-        top: calc(v.$headerHeight + v.$gutter-medium);
-        left: - v.$MenuWidth;
-        height: 100%;
-        width: v.$MenuWidth;
-        // background: radial-gradient(ellipse 100% 90% at center, rgb(53, 73, 119),rgb(1, 6, 19));
-        background-color: white;
-        box-shadow: -5px 0 10px 3px rgba(3, 25, 37, 0.155),
-        -10px 0 20px 10px rgba(4, 139, 250, 0.041);  
-        transform: translateX(v.$MenuWidth) translateZ(0);
-        clip-path: polygon(0% 0%, 120% 0%, 120% 120%, 0% 120%);
-        transition: transform 300ms ease; 
-        
-        @media (max-width: 480px){
-            top: v.$headerHeight;
+        &::-webkit-scrollbar{
+            width: 0;
+            height: 0;
         }
+
+    &--wrapper{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: v.$gutter-medium;    
     }
 
     &--list{
-        display: block;
+        display: flex;
+        gap: 3vw;
         list-style: none;
+        margin: 0;
         padding: 0;
 
-         &-children{
-            margin: 2em v.$gutter-medium;
+
+        &-children{
             &.active {
                 pointer-events: none;
                 cursor: none;
@@ -44,15 +83,20 @@
     }   
 
     &--link{
+        box-sizing: border-box;
+        text-align: center;
         position: relative;
-        display: inline-block;
-        // color: white;
-        color: rgb(98, 205, 255);
-        text-decoration: none;
-        transition: color 200ms ease-out, letter-spacing 200ms ease-out;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
         letter-spacing: .0255rem;
-        outline: 0;
+        color: rgb(98, 205, 255);
         background-color: transparent;
+        text-decoration: none;
+        outline: 0;
+        transition: color 200ms ease-out, letter-spacing 200ms ease-out;
+        padding-inline: v.$gutter-medium;
+        max-width: 60px;
         width: 100%;
 
         &::after{
@@ -80,42 +124,68 @@
         &.active {
             color: rgb(171, 238, 243);
             letter-spacing: .115rem;
-
-            &::after{
-                border-right: 3px solid rgb(98, 205, 255);
-                width: fit-content;
-                margin: 0;
-                padding: 0;
-            }
         }
 
         svg{
             display: inline;
             vertical-align: middle;
-            width: 100%;
-        }
-
-        span {
-           opacity: 1;
-           transition: opacity 200ms ease;
         }
     }
-
-    &--btn{
-        border: none;
-        background: none;
-        cursor: pointer;
-        color:rgb(98, 205, 255);
-        transform: translateX(0);
-        transition: transform 200ms ease;
-
-            &:hover{
-                color: rgb(171, 238, 243);
-            }
-    }
-
 }
-// .test{
-//     overflow: auto;
-//     height: 100vh;
-// }
+
+.off {
+    .menu{
+        min-width: v.$MenuWidthClose;
+    }
+}
+
+
+@media (min-width: 700px){
+
+    .label-spans{
+        position: fixed;
+        height: 100vh;
+        top: calc(v.$headerHeight + 5px);
+        left:v.$MenuWidthClose;
+        right: unset;
+        min-width: 0;
+        z-index: 9000;
+     }
+
+    .menu {
+        position: fixed;
+        height: 100vh;
+        top: v.$headerHeight;
+        left: 0;
+        width: v.$MenuWidthClose;   
+        min-width: 0;
+        clip-path: polygon(0% 0%, 120% 0%, 120% 100%, 0% 100%);
+
+        &--wrapper{
+            display: block;
+        }
+    
+        &--list{
+            display: block;
+            padding-block: v.$gutter-medium;
+    
+             &-children{
+                margin: 2em v.$gutter-medium;
+            }
+        }   
+    
+        &--link{
+            margin-inline: auto;
+            display: block;
+            padding-inline: 0;
+            padding-block: .5em;
+
+            &.active {
+                &::after{
+                    border-right: 3px solid rgb(98, 205, 255);
+                    top: 0;
+                }
+            }
+        }   
+    }
+}

@@ -1,90 +1,45 @@
 @use '../../Styles/variables.scss' as v;
-.header{
 
-    &--wrapper{ 
-       position: absolute;
-       top: 0;
-       left: 0;
-       right: 0;
-       padding: .5em v.$gutter-medium;
-       height: v.$headerHeight;
-       background: white;
-       clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
-       z-index: 500;
+.header--wrapper{
+    display: flex;
+    min-width: 100vw;
+    height: v.$headerHeight;
+    box-sizing: border-box;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
+    box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
+    0 0 20px 10px rgba(4, 139, 250, 0.041); 
 
-        &::before{
-            content: "";
-            position: absolute;
-            top: 0;
-            // left: v.$MenuWidth;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
-            box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
-            0 0 20px 10px rgba(4, 139, 250, 0.041); 
-            z-index: -2;
-        }
-    }
-
-    &--wrapper-div{
+    &-div{
         display: flex;
-        height: v.$headerHeight;
+        justify-content: space-between;
+        align-items: center;
+        flex: 1;
 
         .header--logo{
-            display: flex;
-            align-items: center;
-            width: 100%;
-       
-       
-            img{
-                width: 60px;
-            }
+           display: flex;
+           align-items: center;
+           width: 100%;
+           padding-inline: .3em;
 
             h1{
-                // margin-inline: auto;
-                font-size: 1.2em;
+                margin: 0;
+                font-size: 1.5em;
                 white-space: nowrap;
             }
-        
+
+            img{
+                display: block;
+                height: calc(v.$headerHeight - v.$gutter-medium);
+                max-width: 100%;
+            }
         }
-
+        
         .header--links{
-            display: flex;
-            align-items: center;
-            gap: .5em;
-
+            padding-inline: v.$gutter-medium;
             span{
                 color: rgb(98, 205, 255);
             }
         }
     }
-
-    @media (max-width: 480px){
-        &--wrapper{
-            padding: 0 v.$gutter-medium;
-        }
-        &--wrapper-div{
-
-            .header--logo{    
-                img{
-                    width: 50px;
-                }
-    
-                h1{
-                    // margin-inline: auto;
-                    font-size: 1em;
-                    white-space: nowrap;
-                }
-            
-            }
-            .header--links{
-                span{
-                    font-size: .9em;
-                }
-            }
-        }
-    }
-
 }
 
