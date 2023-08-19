@@ -1,25 +1,25 @@
 @use '/src/Styles/variables.scss' as v;
 
 .App {
-  // position: relative;
   text-align: center;
 
     .app--container{
       position: relative;
       display: flex;
-      flex-direction: column-reverse;
+      margin-inline: auto;
+      max-width: 1300px;
+      padding-block-start: v.$headerHeight;
     }
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   border: 5px solid transparent;
   background-clip: content-box;
-  // background-color: rgb(98, 205, 255);
 }
 
 ::-webkit-scrollbar-thumb:hover {

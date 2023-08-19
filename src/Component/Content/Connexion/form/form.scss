@@ -1,0 +1,32 @@
+@use '../../../../Styles/variables.scss' as v;
+
+.form--wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100% - 30vh);
+
+    .form--login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column wrap;
+        gap: v.$gutter-medium;
+        // height: 100%;
+    
+        input{
+            
+        }
+            &-user{
+                input{
+    
+                }
+            }
+    
+            &-password{
+                input{
+    
+                }
+            }
+    }
+}

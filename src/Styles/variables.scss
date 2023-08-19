@@ -2,14 +2,21 @@
 $gutter-medium: 1rem;
 
 // == HEADER VAR
-$headerHeight: 60px;
-
+$headerHeight: 90px;
+$navMovileHeight: 68px;
+$titleStickyHeight: 2.5rem;
 // == MENU VAR
-$MenuWidth: 150px;
-$MenuWidthClose: 75px;
 
-$MenuWidthMobile: calc($MenuWidth - $gutter-medium);
-$MenuWidthMobileClose: calc($MenuWidthClose - $gutter-medium);
 
-$BtnWidth: 40px;
+$color-primary: #ffff;
 
+$color--text--primary: #62CDFF;
+
+$color-textHover: #ABEEF3;
+
+// $color-gradient: radial-gradient(ellipse at top, transparent,  rgba(0, 171, 250, 0.400), rgba(0, 171, 250, 0.400));
+// 767E83 25% 10
+
+// F6F6F6
+
+//767E83 ombre texte 

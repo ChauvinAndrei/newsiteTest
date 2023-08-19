@@ -1,4 +1,5 @@
 import Logo from '../../Assets/logo.svg';
+import SearchHeader from './Search/SearchHeader';
 
 import './HeaderMain.scss';
 
@@ -10,15 +11,14 @@ const HeaderMain = () => {
             <div className="header--wrapper-div">
 
                 <div className='header--logo'>
-                <img src={Logo} alt="" />
-                <h1>Mon Site Web</h1>
+                    <img src={Logo} alt="DevWeaver sync logo" />
                 </div>
 
-                <div className='header--links'>
-                  {/* <span>link 1</span> */}
+                {/* <div className='header--links'>
                   <span>More</span>
-                </div>
-
+                </div> */}
+                <SearchHeader />
+                
             </div>
             
         </header>

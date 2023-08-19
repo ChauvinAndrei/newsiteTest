@@ -1,0 +1,128 @@
+@use '../../Styles/variables.scss' as v;
+
+.slider--wrapper{
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: 9999;
+
+    .splide__slide{
+        box-sizing: border-box;
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        // box-shadow: 0 0 10px 1px rgba(99, 178, 224, 0.253);
+
+        .slider-out-icon{
+            color: v.$color--text--primary;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.055);
+            padding: 5px;
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
+            border-bottom-left-radius: 15px;
+            opacity: 0;
+            transition: opacity 200ms ease;
+            z-index: 500;
+        }
+
+        .title--slider{
+            text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
+            // color: v.$color--text--primary;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+            padding-inline: v.$gutter-medium;
+            padding-block-end: .2em;
+            // padding-block: v.$gutter-medium;
+            position:absolute;
+            background-color: rgba(0, 0, 0, 0.301);
+            max-height: 100%;
+            height: 80px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            h3{
+                margin: 0;
+                font-size: 1.2rem;
+            }
+
+            .slider-like{
+                position: absolute;
+                top: .5em;
+                right: .5em;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                font-size: .8rem;
+                color: white;
+                line-height: 1.2;
+
+                svg{
+                    color: v.$color--text--primary;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+
+            .slider-content{
+                cursor: pointer;
+                position: relative;
+                color: white;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 90%;
+                margin-block-start: .5em;
+                transition: text-decoration 300ms ease;
+                font-size: .8rem;
+            }
+
+        }
+
+
+        
+        img{
+            transform: translate3d(0,0,0);
+            transition: filter 200ms ease;
+        }
+
+        &:hover{
+
+            img{
+                filter: brightness(1.03);
+            }
+
+            .slider-out-icon{
+                opacity: 1;
+            }
+
+           .slider-content{
+            text-decoration: underline;
+           }
+        }
+
+    }
+
+    .splide__arrow{
+        background-color: rgb(185, 185, 185);
+
+        svg{
+            color: v.$color--text--primary;
+        }
+    }
+
+    img{
+        height: 100%;
+        max-width: auto;
+        object-fit: cover;
+    }
+}

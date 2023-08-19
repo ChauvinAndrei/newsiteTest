@@ -1,24 +1,28 @@
 @use '../../Styles/variables.scss' as v;
 
 .header--wrapper{
+    position: fixed;
     display: flex;
     min-width: 100vw;
     height: v.$headerHeight;
     box-sizing: border-box;
+    background-color: white;
     clip-path: polygon(0% 0%, 100% 0%, 100% 120%, 0% 120%);
     box-shadow: 0 -5px 5px 5px rgba(3, 25, 37, 0.155),
     0 0 20px 10px rgba(4, 139, 250, 0.041); 
+    z-index: 9999;
 
     &-div{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex: 1;
+        margin-inline: auto;
+        width: calc(100% - 10vw);
+        max-width: 1300px;
 
         .header--logo{
            display: flex;
            align-items: center;
-           width: 100%;
            padding-inline: .3em;
 
             h1{
@@ -29,7 +33,8 @@
 
             img{
                 display: block;
-                height: calc(v.$headerHeight - v.$gutter-medium);
+                // height: 80px;
+                // height: calc(v.$headerHeight - v.$gutter-medium);
                 max-width: 100%;
             }
         }

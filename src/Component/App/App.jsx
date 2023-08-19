@@ -1,12 +1,12 @@
 // == COMPONENT
 import { Route, Routes } from 'react-router-dom';
-import {Menu} from '../Menu/Menu';
+import { Menu, MenuDesktop } from '../Menu/Menu';
 
-import About from '../Menu/SousMenus/About/About';
-import Home from '../Menu/SousMenus/Home/Home';
-import Account from '../Menu/SousMenus/Account/Account';
-import Connexion from '../Menu/SousMenus/Connexion/Connexion';
-import Wallet from '../Menu/SousMenus/Wallet/Wallet';
+import About from '../Content/About/About';
+import Home from '../Content/Home/Home';
+import Account from '../Content/Account/Account';
+import Connexion from '../Content/Connexion/Connexion';
+import Wallet from '../Content/Wallet/Wallet';
 
 import { useSelector } from 'react-redux';
 // == UTILS
@@ -44,7 +44,10 @@ const App = () => {
       <HeaderMain />
       
         <div className='app--container'>
+          
           <Menu menuActive={menuActive}/>
+
+          <MenuDesktop />
           
             <Routes>
 
