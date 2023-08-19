@@ -1,10 +1,8 @@
-import Page from "../../Page/Page";
+import withPageWrapper from "../PageWrapper";
 
 const About = ( {isActive} ) => {
   
     return (
-        <Page isActive={isActive}>
-
             <div id="main-content" className="main-content grid-content">
 
               <h2 className={`menu--title${isActive ? ' active': ''}`}>About</h2>
@@ -25,8 +23,8 @@ const About = ( {isActive} ) => {
                 </div>
 
             </div>
-        </Page>
     )
 }
 
-export default About;
+const WrapperAbout = withPageWrapper(About);
+export default WrapperAbout;

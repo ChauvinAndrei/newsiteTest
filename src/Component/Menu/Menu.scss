@@ -9,9 +9,10 @@
     font-size: .9em; 
     height: v.$navMovileHeight;
     background-color: white;  
-    box-shadow: -5px 0 10px 3px rgba(3, 25, 37, 0.155),
+    box-shadow: 5px 0 10px 3px rgba(3, 25, 37, 0.155),
     -10px 0 20px 10px rgba(4, 139, 250, 0.041);
-    clip-path: polygon(0% -20%, 100% -20%, 100% 100%, 0% 100%);
+    box-shadow: 5px 5px 10px 3px rgba(3, 25, 37, 0.155),
+    -10px 0 20px 10px rgba(4, 139, 250, 0.041);
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
@@ -24,7 +25,6 @@
         justify-content: center;
         width: 600px;
         margin-inline: auto;
-        // padding-block: v.$gutter-medium;
         padding-block: 10px;
         padding-inline: v.$gutter-medium;
     
@@ -36,11 +36,9 @@
             list-style: none;
             margin: 0;
             padding: 0;
-            // width: 100vw;
     
             &-children{
                 scroll-snap-align: center;
-                // width: 100%;
                 &.active {
                     pointer-events: none;
                     cursor: none;
@@ -85,7 +83,6 @@
                 transform: translateY(0px);
                 overflow: hidden;
                 background-color: white;
-                // flex: 1;
                 flex: 1 0 24px;
                 z-index: 100;
             }
@@ -108,7 +105,6 @@
                     opacity: 1;
                     flex: 1 0 auto;
                     visibility: visible;
-                    // overflow: visible;
                     transform: translateX(0);
                 }
     
@@ -132,8 +128,6 @@
     top: v.$headerHeight; 
     left: 0;
     display: none;
-    // display: flex;
-    // flex-flow: column nowrap;
     padding-inline: v.$gutter-medium * 2;
     padding-block: v.$gutter-medium * 2; 
     height: calc(100vh - (v.$headerHeight + 4em)); 
@@ -184,7 +178,6 @@
                 padding: 2px 5px;
                 color: v.$color--text--primary;
                 background-color:#f5f5f5;
-                // box-shadow: 0 0 10px 1px rgba(166, 173, 177, 0.253) inset;
                 border-radius: 5px;
                 outline: 1px solid rgb(240, 249, 255);
                 border: 0;

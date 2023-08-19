@@ -1,13 +1,11 @@
-import Page from "../../Page/Page";
-
 import Slider from "../../Slider/Slider";
 import { WidgetPopulaire } from "../../Widget/Widget";
+import withPageWrapper from "../PageWrapper";
 
-const Home = ( { isActive }) => {
+const Home = ( { isActive } ) => {
 
     return (
-        <Page>
-
+        <>
             <section className="grid-content">
                 <Slider />
             </section>
@@ -68,8 +66,12 @@ const Home = ( { isActive }) => {
                 </div>
 
             </div>
-        </Page>
+        </>
     )
 }
 
-export default Home;
+
+
+const WrapperHome = withPageWrapper(Home);
+
+export default WrapperHome;

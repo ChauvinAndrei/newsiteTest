@@ -1,7 +1,8 @@
-import { NavLinks } from "../Component/Menu/Menu";
+// == COMPONENT
+import { NavLinks } from "../Component/Menu/MenuDispatch";
 
 // == ACTION 
-import { UPDATE_CURRENT_PAGE, DISPLAY_MENU } from "../Action/page";
+import { UPDATE_CURRENT_PAGE } from "../Action/page";
 
 const InitialState = {
     
@@ -10,7 +11,7 @@ const InitialState = {
 };
 
 const pageReducer = ( state = InitialState, action = {} ) => {
-console.log(state.menuActive)
+
     switch (action.type) {
 
         case UPDATE_CURRENT_PAGE: 
@@ -18,12 +19,6 @@ console.log(state.menuActive)
             return {
                 ...state,
                 NavLinks: arrayLinks,
-            }
-        case DISPLAY_MENU:
-
-            return{
-                ...state,
-                menuActive: !state.menuActive,
             }
 
         default: 

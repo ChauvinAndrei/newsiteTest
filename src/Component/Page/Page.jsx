@@ -1,9 +1,10 @@
 import './Page.scss';
 
-const Page = ( { children } ) => {
+// == Structure de base a la creation d'une route 
+const Page = ( { children, isActive } ) => {
 
     return (
-        <main className="main--wrapper">
+        <main className={`main--wrapper ${isActive ? 'active' : ''}`}>
             <div className='main--wrapper--div'>
                 <div className="main--wrapper--div-inner">
                     {children}

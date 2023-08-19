@@ -11,13 +11,26 @@ const Slider = () => {
 
     const options = {
         type: 'loop',
+        wheel : true,
         autoplay: true,
         pauseOnHover: true,
-        interval: 3000,
+        interval: 3500,
+        perMove: 1,
+        drag   : 'free',
         arrows: false,
         perPage: 3,
-        height: '200px',
+        breakpoints: {
+          580: {
+            perPage: 1,
+            padding: { left: '0rem', right: '0rem' },
+          },
+          900: {
+            perPage: 2,
+          },
+        },
+        trimSpace: false,
         focus  : 'center',
+        height: '200px',
         pagination: false,
         snap   : true,
         clones: true,
@@ -31,7 +44,7 @@ const Slider = () => {
             aria-label="actualité"
             options={ options }>
 
-                <SplideSlide data-splide-interval="1000">
+                <SplideSlide >
                     <img src={imageTest2} alt=''/>
 
                     <a className='anchorTag--absolute' href='#'>
@@ -45,7 +58,7 @@ const Slider = () => {
                     </a>
                 </SplideSlide>
                 
-                <SplideSlide data-splide-interval="1000"> 
+                <SplideSlide > 
                     <img src={imageTest2} alt=''/>
 
                     <a className='anchorTag--absolute' href='#'>
@@ -59,7 +72,7 @@ const Slider = () => {
                     </a>
                 </SplideSlide>
 
-                <SplideSlide data-splide-interval="1000"> 
+                <SplideSlide > 
                     <img src={imageTest} alt=''/>
 
                     <a className='anchorTag--absolute' href='#'>
@@ -73,7 +86,7 @@ const Slider = () => {
                     </a>
                 </SplideSlide>
                 
-                <SplideSlide data-splide-interval="1000"> 
+                <SplideSlide > 
                     <img src={imageTest2} alt=''/>
 
                     <a className='anchorTag--absolute' href='#'>
@@ -87,7 +100,7 @@ const Slider = () => {
                     </a>
                 </SplideSlide>
                 
-                <SplideSlide data-splide-interval="1000"> 
+                <SplideSlide > 
                     <img src={imageTest2} alt=''/>
 
                     <a className='anchorTag--absolute' href='#'>

@@ -1,9 +1,8 @@
-import Page from "../../Page/Page";
+import withPageWrapper from "../PageWrapper";
 
 const Account = ( { isActive } ) => {
 
     return (
-        <Page>
             <div id="main-content" className="main-content grid-content">
                     <h2 className={`menu--title${isActive ? ' active': ''}`}>Account</h2>
 
@@ -15,8 +14,8 @@ const Account = ( { isActive } ) => {
                         </p>
                     </div>
             </div>
-        </Page>
     )
 }
 
-export default Account;
+const WrapperAccount = withPageWrapper(Account);
+export default WrapperAccount;

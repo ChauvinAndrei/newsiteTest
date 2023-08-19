@@ -1,5 +1,5 @@
+// == TYPE ACTION
 export const UPDATE_CURRENT_PAGE = 'UPDATE_CURRENT_PAGE';
-export const DISPLAY_MENU = 'DISPLAY_MENU';
 
 
 export const updateCurrentPage = ( arrayLinks ) => ({
@@ -7,6 +7,3 @@ export const updateCurrentPage = ( arrayLinks ) => ({
     arrayLinks,
 });
 
-export const displayMenu = () => ({
-    type: DISPLAY_MENU,
-});

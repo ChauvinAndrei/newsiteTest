@@ -1,10 +1,8 @@
-import Page from "../../Page/Page";
+import withPageWrapper from "../PageWrapper";
 
 const Wallet = ( { isActive } ) => {
 
     return (
-        <Page>
-
             <div id="main-content" className="main-content grid-content">
                 <h2 className={`menu--title${isActive ? ' active': ''}`}>Wallet</h2>
 
@@ -19,8 +17,9 @@ const Wallet = ( { isActive } ) => {
                 </div>
                 
             </div>
-        </Page>
     )
 }
 
-export default Wallet;
+const WrapperWallet = withPageWrapper(Wallet);
+
+export default WrapperWallet;

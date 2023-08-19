@@ -1,12 +1,14 @@
 // == COMPONENT
 import { Route, Routes } from 'react-router-dom';
-import { Menu, MenuDesktop } from '../Menu/Menu';
+// import { Menu, MenuDesktop } from '../Menu/Menu';
+import { MenuDispatch } from '../Menu/MenuDispatch';
 
 import About from '../Content/About/About';
 import Home from '../Content/Home/Home';
 import Account from '../Content/Account/Account';
 import Connexion from '../Content/Connexion/Connexion';
 import Wallet from '../Content/Wallet/Wallet';
+import WrapperWallet from '../Content/Wallet/Wallet';
 
 import { useSelector } from 'react-redux';
 // == UTILS
@@ -17,7 +19,7 @@ import HeaderMain from '../HeaderMain/HeaderMain';
 
 const App = () => {
 
-  const { NavLinks, menuActive } = useSelector((state) => state.page);
+  const { NavLinks } = useSelector((state) => state.page);
 
   const handlePage = (label) => {
 
@@ -34,21 +36,19 @@ const App = () => {
     };
 
     const Component = components[label];
-    return Component ? <Component {...filterLinks}/> : null;
+    return Component ? <Component {...filterLinks} /> : null;
   
   }
 
   return (
-    <div className={`App${menuActive ? " off" : ""}`}>
+    <div className='App'>
 
       <HeaderMain />
       
         <div className='app--container'>
           
-          <Menu menuActive={menuActive}/>
-
-          <MenuDesktop />
-          
+          <MenuDispatch />
+    
             <Routes>
 
               {NavLinks.map((pageLink) => (
