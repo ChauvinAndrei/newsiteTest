@@ -48,7 +48,7 @@ const App = () => {
         <div className='app--container'>
           
           <MenuDispatch />
-    
+
             <Routes>
 
               {NavLinks.map((pageLink) => (

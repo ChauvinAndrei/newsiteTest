@@ -1,8 +1,6 @@
 // == styles
 import './Widget.scss'
 
-// import TicketSVG from '../../Assets/ticket.svg';
-import TicketBigSVG from '../../Assets/ticketbig.svg';
 
 const WidgetPopulaire = () => {
 

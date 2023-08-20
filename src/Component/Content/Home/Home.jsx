@@ -2,11 +2,11 @@ import Slider from "../../Slider/Slider";
 import { WidgetPopulaire } from "../../Widget/Widget";
 import withPageWrapper from "../PageWrapper";
 
-const Home = ( { isActive } ) => {
+const Home = ( { isActive, positionTitle } ) => {
 
     return (
         <>
-            <section className="grid-content">
+            <section id="sliderHome" className="sliderHome grid-content">
                 <Slider />
             </section>
 
@@ -16,7 +16,9 @@ const Home = ( { isActive } ) => {
 
             <div id="main-content" className="main-content grid-content">
 
-              <h2 className={`menu--title${isActive ? ' active': ''}`}>Home</h2>
+              <h2 className={`menu--title${isActive ? ' active': ''}`} >
+                Home
+              </h2>
 
                 <div className="duContenu">
                     <p>

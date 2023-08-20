@@ -1,5 +1,7 @@
 @use '../../Styles/variables.scss' as v;
 
+$image-TICKETBIG: '../../Assets/ticketbig.svg';
+
 .slider--wrapper{
     display: block;
     margin: 0;
@@ -10,7 +12,7 @@
     .splide__slide{
         box-sizing: border-box;
         position: relative;
-        border-radius: 20px;
+        border-radius: 15px;
         overflow: hidden;
         // box-shadow: 0 0 10px 1px rgba(99, 178, 224, 0.253);
 
@@ -55,17 +57,22 @@
 
             .slider-like{
                 position: absolute;
-                top: .5em;
-                right: .5em;
+                top: 0;
+                right: 0;
                 display: flex;
                 align-items: center;
                 gap: 5px;
-                font-size: .8rem;
-                color: white;
-                line-height: 1.2;
+                font-size: .7rem;
+                color: v.$color--text--primary;
+                font-weight: bolder;
+                line-height:20px;
+                padding: 5px;
+                // background-color: rgba(1, 25, 36, 0.356);
+                border-bottom-left-radius: 15px;
+
 
                 svg{
-                    color: v.$color--text--primary;
+                    // color: v.$color--text--primary;
                     width: 20px;
                     height: 20px;
                 }

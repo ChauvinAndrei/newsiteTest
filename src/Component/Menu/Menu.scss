@@ -16,7 +16,7 @@
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    z-index: 9997;
+    z-index: 9999;
 
     .menu {
         position: relative;
@@ -128,18 +128,21 @@
     top: v.$headerHeight; 
     left: 0;
     display: none;
-    padding-inline: v.$gutter-medium * 2;
+    padding-inline: v.$gutter-medium ;
     padding-block: v.$gutter-medium * 2; 
-    height: calc(100vh - (v.$headerHeight + 4em)); 
+    height: calc(100vh - (v.$headerHeight)); 
     color: v.$color--text--primary;
-    // overflow-y: scroll;
-    // width: 100%;
+    overflow-y: auto;
+    width: 100%;
+    min-width: 170px;
+    max-width: fit-content;
+    box-sizing: border-box;
     z-index: 100; 
-
 
     .navDesktop--user{
         display: flex;
         flex-flow: column nowrap;
+        padding: 10px;
         
 
         &-icon{
@@ -148,9 +151,12 @@
             min-width: 100px;
             margin-inline: auto;
 
-            img {
+            svg {
                 object-fit: contain;
                 border-radius: 50%;
+                border-radius: 50%;
+                padding: 15px;
+                box-shadow: 0 0 5px 1px rgba(229, 244, 255, 0.377) inset, 0 0 5px 2px rgba(4, 139, 250, 0.041) inset;
             }
 
             span{
@@ -166,49 +172,10 @@
             }
         }
 
-        &-connect{
-            margin-top: 1em;
-
-            &-button{
-                display: flex;
-                align-items: center;
-                cursor: pointer;
-                pointer-events: all;
-                gap: 5px;
-                padding: 2px 5px;
-                color: v.$color--text--primary;
-                background-color:#f5f5f5;
-                border-radius: 5px;
-                outline: 1px solid rgb(240, 249, 255);
-                border: 0;
-                width: fit-content;
-        
-                  svg{
-                    width: 20px;
-                    height: 20px;
-                  }
-
-                  span{
-                    padding-inline-end: 2px;
-                  }
-
-                &.connect{
-                    svg{
-                        width: initial;
-                        height: initial;
-                    }
-                }
-
-                &:hover{
-                    span{
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
     }
 
     .navDesktop--nav{
+        padding-inline-start: 1em;
         
         &--list{
             display: grid;

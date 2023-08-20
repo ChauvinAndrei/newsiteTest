@@ -4,7 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100% - 30vh);
+    // height: calc(100% - 30vh);
+    margin-block: 1em;
 
     .form--login{
         display: flex;

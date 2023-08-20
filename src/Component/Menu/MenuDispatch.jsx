@@ -91,7 +91,7 @@ const MenuDispatch = () => {
     useEffect(() => {                                                      //- == Attente du premier rendu pour obtenir les bonnes positions des élements => Links (évite le NaN)
 
         const initialState = activeRefs.current.findIndex((item) => {
-          return item.classList.contains('active');
+          return item?.classList.contains('active');
         });
 
         setActiveIndex(initialState !== -1 ? initialState : -1);
@@ -102,20 +102,23 @@ const MenuDispatch = () => {
     
     return (
         <>
+
             {isMobile ? (
                 <Menu
                     handleMenuItemClick={handleMenuItemClick}
                     menuItems={menuItems}
                     activeRefs={activeRefs}
                     activeIndex={activeIndex}
-                />
+                    isMobile={isMobile}
+                /> 
             ) : (
                 <MenuDesktop
                     handleMenuItemClick={handleMenuItemClick}
                     menuItems={menuItems}
                     activeRefs={activeRefs}
                     activeIndex={activeIndex}
-                />
+                    isMobile={isMobile}
+                /> 
             )}
         </>
     );

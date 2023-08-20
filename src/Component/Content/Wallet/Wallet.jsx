@@ -1,10 +1,16 @@
 import withPageWrapper from "../PageWrapper";
 
-const Wallet = ( { isActive } ) => {
+const Wallet = ( { isActive, positionTitle } ) => {
 
     return (
             <div id="main-content" className="main-content grid-content">
-                <h2 className={`menu--title${isActive ? ' active': ''}`}>Wallet</h2>
+
+                <h2 
+                className={`menu--title${isActive ? ' active': ''}`}
+                style={positionTitle}
+                >
+                    Wallet
+                </h2>
 
                 <div className="duContenu">
                     <p>

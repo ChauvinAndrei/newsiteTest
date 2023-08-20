@@ -14,9 +14,6 @@ const HeaderMain = () => {
                     <img src={Logo} alt="DevWeaver sync logo" />
                 </div>
 
-                {/* <div className='header--links'>
-                  <span>More</span>
-                </div> */}
                 <SearchHeader />
                 
             </div>

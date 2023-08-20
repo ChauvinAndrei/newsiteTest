@@ -6,7 +6,7 @@
     padding-block-end: calc(v.$titleStickyHeight + v.$gutter-medium);
     width: 100%;
     opacity: 0;
-    transition: opacity 400ms ease-in;
+    transition: opacity 300ms ease-in;
     
     &.active{
         opacity: 1;
@@ -21,7 +21,7 @@
                 grid-auto-rows: auto;
                 gap: v.$gutter-medium;
 
-                .grid-content:nth-child(1){
+                .sliderHome{
                     padding-block: 1rem;
                     grid-column: span 2;
                     min-height: 200px;
@@ -29,7 +29,7 @@
                     clip-path: polygon(.1% 0%, 99.9% 0%, 99.9% 100%, .1% 100%);
                     z-index: 100;
                 }
-                .grid-content:nth-child(2){
+                .widget-populaire{
                     display: none;
                     grid-column: 2 / span 1; 
                     position: sticky;
@@ -40,9 +40,11 @@
                     margin-top: calc(v.$titleStickyHeight - 1rem);
                 }
                 .grid-content:nth-child(3){
-                    grid-column: span 1; 
+                    grid-column: span 2; 
                     grid-row: 2 / span 1; 
                     margin-top: - v.$gutter-medium;
+                    max-width: 800px;
+                    margin-inline: auto;
                 }
                 
 
@@ -65,7 +67,7 @@
                     transform: rotateX(-45deg);
                     transition: opacity 500ms ease, transform 300ms ease-in;
                     transition-delay: 200ms, 200ms;
-                    z-index: 9999;
+                    z-index: 800;
                     
                     &.active{
                         opacity: 1;
@@ -88,7 +90,7 @@
                         display: block;
                         height: calc(v.$titleStickyHeight + 3rem);
                         width: 100%;
-                        background: linear-gradient(to bottom, white 60%, rgba(255, 255, 255, 0.219) 100%, transparent);
+                        background: linear-gradient(to bottom, white 50%, rgba(255, 255, 255, 0.219) 100%, transparent);
                     }
                         p{
                             text-align: left;
@@ -98,10 +100,21 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 960px) {
   
     #WidgetPopulaire{
         display: block;
+    }
+    .main--wrapper{
+        &--div{
+
+            &-inner{
+                .grid-content:nth-child(3) {
+                    grid-column: span 1; 
+                    max-width: unset;
+                }
+            }
+        }
     }
 
 }
@@ -115,6 +128,5 @@
     #WidgetPopulaire{
         top: calc((v.$headerHeight + v.$titleStickyHeight) + 1px);
         height: calc(100vh - (v.$headerHeight + v.$titleStickyHeight + 1rem));
-    }
-
+    }  
 }

@@ -5,7 +5,7 @@ import imageTest2 from '../../Assets/matthew-guay-Q7wDdmgCBFg-unsplash.jpg';
 
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
-import { Heart, ArrowUpRight } from 'react-feather';
+import { Heart } from 'react-feather';
 
 const Slider = () => {
 
@@ -33,7 +33,7 @@ const Slider = () => {
         height: '200px',
         pagination: false,
         snap   : true,
-        clones: true,
+        // clones: true,
         padding: { left: '1rem', right: '1rem' },
         gap: '1rem',
     }
@@ -53,7 +53,7 @@ const Slider = () => {
                           <span className='slider-content'>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel delectus iusto, ratione nesciunt beatae perspiciatis similique eos tempore sequi praesentium molestias cupiditate, sed neque ex provident? Eligendi voluptatem est nam?
                           </span>
-                          <span className='slider-like'> 15 <Heart className='slider-heart-like-icon'/></span>
+                          <span className='slider-like'> 15  <Heart className='slider-heart-like-icon'/></span>
                         </span>
                     </a>
                 </SplideSlide>
