@@ -2,8 +2,8 @@
 
 .navDesktop--user-connect{
     opacity: 0;
-    margin-top: 1em;
     animation: loggedAnimation 400ms ease-in forwards;
+
     @keyframes loggedAnimation {
         from{
             opacity: 0;
@@ -16,42 +16,48 @@
 
     &.mobile-fixed{
         position: fixed;
-        bottom: v.$headerHeight;
+        bottom: 0;
         right: 0;
-
+        z-index: 9999;
+        
         .box--infoMobile{
+            transform: translateY(0px);
+            transition: transform 500ms ease, opacity 700ms ease;
+            z-index: 9999;
 
             &-info {
                 opacity: 0;
-                padding-inline-end: .5em;
-                transform: translateX(200px);
-                transition: transform 500ms ease, opacity 700ms ease;
+                transition: opacity 700ms ease;
             }
-
+            
             .user--infoMmobile-btn{
                 display: block;
                 width: 25px;
                 height: 25px;
+                cursor: pointer;
+                border-radius: 50%;
+                background: v.$color--text--primary;
                 
-
                 &-cross{
-                    display: block;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     position: relative;
 
-                    &::after, &::before{
-                        content: "";
+                    &::after, 
+                    &::before{
+                        content: '';
                         position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        height: 100%;
-                        width: 100%;
-                        transform: translate(-50%, -50%);
-                        border: 1px solid white;
+                        width: 12px;
+                        height: 1px;
+                        border: 1px solid transparent;
+                        background-color: white;
+                        transition: transform 500ms ease;
                     }
 
                     &::after{
                         content: "";
-                        transform: translate(-50%, -50%) rotate(-90deg);
+                        transform: rotate(-90deg);
                     }
 
                 }
@@ -59,36 +65,42 @@
 
             
             &.open {
-                .user--infoMmobile-btn {
-                    transform: rotate(-45deg);
+                transform: translateY(-4em);
+                
+                .box--infoMobile-info{
+                    opacity: 1;
                 }
 
-                            
-                .box--infoMobile-info {
-                    opacity: 1;
-                    transform: translateX(0);
+                .user--infoMmobile-btn-cross {
+                    &::after{
+                        transform: rotate(45deg);
+                    }
+                    &::before{
+                        transform: rotate(-45deg);
+                    }
                 }
             }
         } 
     }   
 
-    .box--infoMobile{
+    .box--infoMobile{        
+        border-top: 1px solid rgb(213, 224, 241);
+        border-radius: 10px;
         position: relative;
+        background-color: rgba(255, 255, 255, 0.842);
+        border-radius: 5px;
+        padding: 5px;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
 
             .user--infoMmobile-btn{
                 cursor: pointer;
                 position: absolute;
                 top: -2.5em;
-                right: 0;
+                right: 5px;
                 display: none;
-                background: v.$color--text--primary;
-                border-radius: 50%;
-                background-color: v.$color--text--primary;
+                background: none;
                 border: inherit;
-                transform: rotate(0deg);
-                transition: transform 500ms ease;
-            }
-        
+            }  
     }   
 
     .Mobile-user-info{
@@ -114,8 +126,12 @@
         border-radius: 5px;
         outline: 1px solid rgb(240, 249, 255);
         border: 0;
-        box-shadow: 0 0 10px 1px rgba(229, 244, 255, 0.377) , 0 0 1px 1px rgba(4, 139, 250, 0.041);
+        background: rgba(231, 230, 230, 0.075);
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.116);
+        box-shadow: 0 0 5px 1px rgba(4, 139, 250, 0.068);
+        background-color: white;
         width: fit-content;
+        overflow: hidden;
     
 
           svg{

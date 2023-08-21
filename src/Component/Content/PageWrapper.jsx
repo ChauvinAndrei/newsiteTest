@@ -8,7 +8,7 @@ import Page from "../Page/Page";
  */
 const withPageWrapper = (ContentComponent) => {
 
-  return ({isActive}) => {
+  return ({isActive, label}) => {
 
     const mainContentRef = useRef(null);                   // - recuperation de l'élement inner wrapper
     const [positionTitle, setPositionTitle] = useState({}); // - update de la position du titre de la page actuel
@@ -38,6 +38,7 @@ const withPageWrapper = (ContentComponent) => {
             
             <ContentComponent 
             isActive={ isActive } 
+            label={ label }
             positionTitle={ positionTitle }/>              {/* - Composant trouver en retour du params ContentComponent et affichage au changement de la route */}
 
           </div>

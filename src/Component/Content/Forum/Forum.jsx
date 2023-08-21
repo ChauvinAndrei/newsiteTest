@@ -1,7 +1,7 @@
 import withPageWrapper from "../PageWrapper";
 
-const About = ( { isActive, positionTitle } ) => {
-  
+const Forum = ( { isActive, positionTitle, label } ) => {
+
     return (
             <div id="main-content" className="main-content grid-content">
 
@@ -9,7 +9,7 @@ const About = ( { isActive, positionTitle } ) => {
               className={`menu--title${isActive ? ' active': ''}`}
               style={positionTitle}
               >
-                About
+                { label }
               </h2>
 
                 <div className="duContenu">
@@ -31,5 +31,5 @@ const About = ( { isActive, positionTitle } ) => {
     )
 }
 
-const WrapperAbout = withPageWrapper(About);
+const WrapperAbout = withPageWrapper(Forum);
 export default WrapperAbout;

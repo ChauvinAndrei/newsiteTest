@@ -1,6 +1,6 @@
 import withPageWrapper from "../PageWrapper";
 
-const Account = ( { isActive, positionTitle } ) => {
+const Profil = ( { isActive, positionTitle, label } ) => {
 
     return (
             <div id="main-content" className="main-content grid-content">
@@ -9,7 +9,7 @@ const Account = ( { isActive, positionTitle } ) => {
                     className={`menu--title${isActive ? ' active': ''}`}
                     style={positionTitle}
                     >
-                        Account
+                        { label }
                     </h2>
 
                     <div className="duContenu">
@@ -23,5 +23,5 @@ const Account = ( { isActive, positionTitle } ) => {
     )
 }
 
-const WrapperAccount = withPageWrapper(Account);
+const WrapperAccount = withPageWrapper(Profil);
 export default WrapperAccount;

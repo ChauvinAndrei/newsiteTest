@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 // import { Menu, MenuDesktop } from '../Menu/Menu';
 import { MenuDispatch } from '../Menu/MenuDispatch';
 
-import About from '../Content/About/About';
+
 import Home from '../Content/Home/Home';
-import Account from '../Content/Account/Account';
+import Profil from '../Content/Profil/Profil';
 import Connexion from '../Content/Connexion/Connexion';
-import Wallet from '../Content/Wallet/Wallet';
-import WrapperWallet from '../Content/Wallet/Wallet';
+import Actualités from '../Content/Actualités/Actualités';
+import Forum from '../Content/Forum/Forum';
 
 import { useSelector } from 'react-redux';
 // == UTILS
@@ -28,14 +28,15 @@ const App = () => {
     })
 
     const components = {
-      About,
+      Actualités,
       Home,
-      Account,
+      Profil,
       Connexion,
-      Wallet,
+      Forum,
     };
 
     const Component = components[label];
+    
     return Component ? <Component {...filterLinks} /> : null;
   
   }

@@ -20,7 +20,7 @@ const UserDisconnect = ( { isMobile } ) => {
               
               <div className='box--infoMobile-info'>
                 <span className='Mobile-user-info'>
-                  <span>Welcome</span>, 
+                  <span>Hi</span>, 
                   <span> user 1500</span>
                 </span>
 

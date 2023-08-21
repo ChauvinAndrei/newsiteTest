@@ -1,6 +1,7 @@
 import './Page.scss';
 
 // == Structure de base a la creation d'une route + le inner wrapper
+
 const Page = ( { children, isActive } ) => {
 
     return (

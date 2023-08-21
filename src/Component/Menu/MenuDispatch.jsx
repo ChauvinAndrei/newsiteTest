@@ -9,7 +9,7 @@ import { useDispatch , useSelector} from "react-redux";
 import { updateCurrentPage } from '../../Action/page';
 
 // == ICON
-import { Power, Home, User, Info, ShoppingBag } from 'react-feather';
+import { Power, Home, User, Info, FileText, MessageSquare } from 'react-feather';
 
 //==================================================================
 
@@ -17,9 +17,9 @@ import { Power, Home, User, Info, ShoppingBag } from 'react-feather';
 const NavLinks = [                                                         //- == Array Route et association icon et label ( tableau mise a jour apres appel de la fonction setMenuItem )
     { to: '/connexion', icon: <Power />, label: 'Connexion' },
     { to: '/', icon: <Home />, label: 'Home' },
-    { to: '/account', icon: <User />, label: 'Account' },
-    { to: '/wallet', icon: <ShoppingBag />, label: 'Wallet' },
-    { to: '/about', icon: <Info />, label: 'About' },
+    { to: '/account', icon: <User />, label: 'Profil' },
+    { to: '/actualités', icon: <FileText />, label: 'Actualités' },
+    { to: '/forum', icon: <MessageSquare />, label: 'Forum' },
 ];
 
 const MenuDispatch = () => {

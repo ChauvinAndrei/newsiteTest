@@ -143,6 +143,7 @@
         display: flex;
         flex-flow: column nowrap;
         padding: 10px;
+        gap: .5em;
         
 
         &-icon{
@@ -214,14 +215,15 @@
 
                 &-item{
                     letter-spacing:initial;
-                    transition: letter-spacing 300ms ease-in;
+                    transition: text-indent 300ms ease-out;
                     a{
                         text-decoration: none;
                         color: inherit;
                     }
 
                     &:hover{
-                        letter-spacing: .0455rem;
+                        text-indent: 5px;
+                        // letter-spacing: .0455rem;
                     }
 
                     &.active {

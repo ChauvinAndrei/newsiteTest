@@ -1,6 +1,6 @@
 import withPageWrapper from "../PageWrapper";
 
-const Wallet = ( { isActive, positionTitle } ) => {
+const Actualités = ( { isActive, positionTitle, label } ) => {
 
     return (
             <div id="main-content" className="main-content grid-content">
@@ -9,7 +9,7 @@ const Wallet = ( { isActive, positionTitle } ) => {
                 className={`menu--title${isActive ? ' active': ''}`}
                 style={positionTitle}
                 >
-                    Wallet
+                   { label }
                 </h2>
 
                 <div className="duContenu">
@@ -26,6 +26,6 @@ const Wallet = ( { isActive, positionTitle } ) => {
     )
 }
 
-const WrapperWallet = withPageWrapper(Wallet);
+const WrapperWallet = withPageWrapper(Actualités);
 
 export default WrapperWallet;

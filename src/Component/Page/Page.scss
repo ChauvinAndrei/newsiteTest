@@ -18,7 +18,7 @@
 
             &-inner{
                 display: grid;
-                grid-auto-rows: auto;
+                grid-template-columns: 1fr auto;
                 gap: v.$gutter-medium;
 
                 .sliderHome{
@@ -111,7 +111,7 @@
             &-inner{
                 .grid-content:nth-child(3) {
                     grid-column: span 1; 
-                    max-width: unset;
+                    max-width: none;
                 }
             }
         }

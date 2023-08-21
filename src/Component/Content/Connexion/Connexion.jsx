@@ -2,8 +2,8 @@ import FormConnexion from "./form/form";
 
 import withPageWrapper from "../PageWrapper";
 
-const Connexion = ( { isActive, positionTitle } ) => {
-console.log(positionTitle)
+const Connexion = ( { isActive, positionTitle, label } ) => {
+
     return (
             <div id="main-content" className="main-content grid-content">
 
@@ -11,7 +11,7 @@ console.log(positionTitle)
               className={`menu--title${isActive ? ' active': ''}`} 
               style={positionTitle}
               >
-                Connexion
+                  { label }
               </h2>
 
                 <div className="duContenu">
